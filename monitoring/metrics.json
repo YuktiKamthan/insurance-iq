@@ -1,0 +1,20 @@
+{
+  "uptime_seconds": 0.67615,
+  "total_predictions": 3,
+  "predictions_by_model": {
+    "fraud_detector": 3
+  },
+  "average_prediction_time_ms": 4.66,
+  "min_prediction_time_ms": 3.22,
+  "max_prediction_time_ms": 7.51,
+  "fraud_predictions": {
+    "legitimate": 3,
+    "fraud": 0
+  },
+  "risk_level_distribution": {
+    "LOW": 3,
+    "MEDIUM": 0,
+    "HIGH": 0
+  },
+  "last_updated": "2025-12-26T18:25:59.062595"
+}

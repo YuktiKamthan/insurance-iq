@@ -1,0 +1,144 @@
+2025-12-26 17:18:35 | INFO | src.api.main | 🚀 Starting Insurance IQ API...
+2025-12-26 17:18:35 | INFO | src.api.main | 📦 Loading models...
+2025-12-26 17:18:36 | INFO | src.api.main | ✅ All models loaded successfully!
+2025-12-26 17:31:32 | INFO | src.api.main | Fraud prediction requested for claim: $50000.0
+2025-12-26 17:31:32 | INFO | src.api.main | Prediction: legitimate | Probability: 13.00% | Risk: LOW | Time: 270.67ms
+2025-12-26 17:31:52 | INFO | src.api.main | Fraud prediction requested for claim: $3000.0
+2025-12-26 17:31:52 | INFO | src.api.main | Prediction: legitimate | Probability: 6.00% | Risk: LOW | Time: 36.14ms
+2025-12-26 17:32:05 | INFO | src.api.main | Fraud prediction requested for claim: $20000.0
+2025-12-26 17:32:05 | INFO | src.api.main | Prediction: legitimate | Probability: 2.00% | Risk: LOW | Time: 28.61ms
+2025-12-26 17:32:28 | INFO | src.api.main | Metrics requested
+2025-12-26 17:32:34 | INFO | src.api.main | Metrics requested
+2025-12-26 18:24:01 | INFO | src.api.main | Root endpoint accessed
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2025-12-26 18:24:01 | INFO | src.api.main | Metrics requested
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2025-12-26 18:24:01 | INFO | src.api.main | Fraud prediction requested for claim: $15000.0
+2025-12-26 18:24:01 | ERROR | src.api.main | Prediction failed: Model not loaded. Call load() first.
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 500 Internal Server Error"
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 422 Unprocessable Entity"
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 422 Unprocessable Entity"
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 422 Unprocessable Entity"
+2025-12-26 18:24:01 | INFO | src.api.main | Fraud prediction requested for claim: $3000.0
+2025-12-26 18:24:01 | ERROR | src.api.main | Prediction failed: Model not loaded. Call load() first.
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 500 Internal Server Error"
+2025-12-26 18:24:01 | INFO | src.api.main | Metrics requested
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2025-12-26 18:24:01 | INFO | src.api.main | Fraud prediction requested for claim: $10000.0
+2025-12-26 18:24:01 | ERROR | src.api.main | Prediction failed: Model not loaded. Call load() first.
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 500 Internal Server Error"
+2025-12-26 18:24:01 | INFO | src.api.main | Metrics requested
+2025-12-26 18:24:01 | INFO | httpx | HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | src.api.main | Root endpoint accessed
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: GET http://testserver/health "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | src.api.main | Metrics requested
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | src.api.main | Fraud prediction requested for claim: $15000.0
+2025-12-26 18:25:59 | INFO | src.api.main | Prediction: legitimate | Probability: 1.00% | Risk: LOW | Time: 7.51ms
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 422 Unprocessable Entity"
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 422 Unprocessable Entity"
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 422 Unprocessable Entity"
+2025-12-26 18:25:59 | INFO | src.api.main | Fraud prediction requested for claim: $3000.0
+2025-12-26 18:25:59 | INFO | src.api.main | Prediction: legitimate | Probability: 6.00% | Risk: LOW | Time: 3.25ms
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | src.api.main | Metrics requested
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | src.api.main | Fraud prediction requested for claim: $10000.0
+2025-12-26 18:25:59 | INFO | src.api.main | Prediction: legitimate | Probability: 8.00% | Risk: LOW | Time: 3.22ms
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: POST http://testserver/predict/fraud "HTTP/1.1 200 OK"
+2025-12-26 18:25:59 | INFO | src.api.main | Metrics requested
+2025-12-26 18:25:59 | INFO | httpx | HTTP Request: GET http://testserver/metrics "HTTP/1.1 200 OK"
+2025-12-27 01:11:36 | INFO | src.api.main | 🚀 Starting Insurance IQ API...
+2025-12-27 01:11:36 | INFO | src.api.main | 📦 Loading models...
+2025-12-27 01:11:36 | INFO | src.api.main | ✅ All models loaded successfully!
+2025-12-27 01:13:04 | INFO | src.api.main | Fraud explanation requested for claim: $50000.0
+2025-12-27 01:13:04 | ERROR | src.api.main | Explanation failed: only length-1 arrays can be converted to Python scalars
+2025-12-27 19:55:14 | INFO | src.api.main | 🚀 Starting Insurance IQ API...
+2025-12-27 19:55:14 | INFO | src.api.main | 📦 Loading models...
+2025-12-27 19:55:14 | INFO | src.api.main | ✅ All models loaded successfully!
+2025-12-27 19:57:46 | INFO | src.api.main | Fraud explanation requested for claim: $50000.0
+2025-12-27 19:57:46 | INFO | src.api.main | Prediction with explanation: legitimate | Probability: 13.00% | Time: 177.63ms
+2025-12-29 15:15:18 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 15:15:18 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 15:15:18 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 15:15:18 | INFO | __main__ | 📦 Loading models...
+2025-12-29 15:15:18 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 15:16:38 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 15:16:38 | ERROR | bedrock_service | Bedrock analysis failed: An error occurred (ResourceNotFoundException) when calling the InvokeModel operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before using the model. If you have already filled out the form, try again in 15 minutes.
+2025-12-29 15:16:38 | ERROR | __main__ | Claim analysis failed: name 'datetime' is not defined
+2025-12-29 15:17:56 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 15:17:56 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 15:17:56 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 15:17:56 | INFO | __main__ | 📦 Loading models...
+2025-12-29 15:17:56 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 15:18:17 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 15:18:17 | ERROR | bedrock_service | Bedrock analysis failed: An error occurred (ResourceNotFoundException) when calling the InvokeModel operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before using the model. If you have already filled out the form, try again in 15 minutes.
+2025-12-29 15:30:02 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 15:30:02 | ERROR | bedrock_service | Bedrock analysis failed: An error occurred (ResourceNotFoundException) when calling the InvokeModel operation: Model use case details have not been submitted for this account. Fill out the Anthropic use case details form before using the model. If you have already filled out the form, try again in 15 minutes.
+2025-12-29 15:48:35 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 15:48:39 | INFO | bedrock_service | Bedrock analysis completed successfully
+2025-12-29 19:50:53 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 19:50:53 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 19:50:53 | INFO | snowflake_service | SnowflakeService initialized
+2025-12-29 19:50:53 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 19:50:53 | INFO | __main__ | 📦 Loading models...
+2025-12-29 19:50:53 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 19:52:41 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 19:52:41 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 19:52:41 | INFO | snowflake_service | SnowflakeService initialized
+2025-12-29 19:52:41 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 19:52:41 | INFO | __main__ | 📦 Loading models...
+2025-12-29 19:52:41 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 19:54:01 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 19:54:05 | INFO | bedrock_service | Bedrock analysis completed successfully
+2025-12-29 19:58:41 | INFO | snowflake.connector.connection | Snowflake Connector for Python Version: 4.1.1, Python Version: 3.12.4, Platform: macOS-14.6.1-arm64-arm-64bit
+2025-12-29 19:58:41 | INFO | snowflake.connector.connection | Connecting to GLOBAL Snowflake domain
+2025-12-29 19:58:43 | ERROR | snowflake_service | Failed to connect to Snowflake: 250001 (08001): None: Failed to connect to DB: ewc54933.us-east-1.snowflakecomputing.com:443. Incorrect username or password was specified.
+2025-12-29 20:02:28 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 20:02:28 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 20:02:28 | INFO | snowflake_service | SnowflakeService initialized
+2025-12-29 20:02:28 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 20:02:28 | INFO | __main__ | 📦 Loading models...
+2025-12-29 20:02:28 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 20:03:07 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 20:03:11 | INFO | bedrock_service | Bedrock analysis completed successfully
+2025-12-29 20:05:59 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 20:05:59 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 20:05:59 | INFO | snowflake_service | SnowflakeService initialized
+2025-12-29 20:06:00 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 20:06:00 | INFO | __main__ | 📦 Loading models...
+2025-12-29 20:06:00 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 20:06:22 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 20:06:26 | INFO | bedrock_service | Bedrock analysis completed successfully
+2025-12-29 20:08:08 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 20:08:08 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 20:08:08 | INFO | snowflake_service | SnowflakeService initialized
+2025-12-29 20:08:08 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 20:08:08 | INFO | __main__ | 📦 Loading models...
+2025-12-29 20:08:08 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 20:08:15 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 20:08:20 | INFO | bedrock_service | Bedrock analysis completed successfully
+2025-12-29 20:09:48 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 20:09:48 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 20:09:48 | INFO | snowflake_service | SnowflakeService initialized
+2025-12-29 20:09:48 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 20:09:48 | INFO | __main__ | 📦 Loading models...
+2025-12-29 20:09:48 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 20:09:55 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 20:10:00 | INFO | bedrock_service | Bedrock analysis completed successfully
+2025-12-29 20:18:18 | INFO | botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-12-29 20:18:19 | INFO | bedrock_service | BedrockService initialized
+2025-12-29 20:18:19 | INFO | snowflake_service | SnowflakeService initialized
+2025-12-29 20:18:19 | INFO | __main__ | 🚀 Starting Insurance IQ API...
+2025-12-29 20:18:19 | INFO | __main__ | 📦 Loading models...
+2025-12-29 20:18:19 | INFO | __main__ | ✅ All models loaded successfully!
+2025-12-29 20:18:36 | INFO | bedrock_service | Calling Bedrock for claim analysis
+2025-12-29 20:18:40 | INFO | bedrock_service | Bedrock analysis completed successfully
+2025-12-29 20:18:40 | INFO | snowflake.connector.connection | Snowflake Connector for Python Version: 4.1.1, Python Version: 3.12.4, Platform: macOS-14.6.1-arm64-arm-64bit
+2025-12-29 20:18:40 | INFO | snowflake.connector.connection | Connecting to GLOBAL Snowflake domain
+2025-12-29 20:18:41 | INFO | snowflake_service | Successfully connected to Snowflake
+2025-12-29 20:18:42 | INFO | snowflake_service | Inserted Bedrock analysis 71f64b0a-0904-4f64-9d5e-db16451ede7f into Snowflake
+2025-12-29 20:18:42 | INFO | __main__ | Successfully logged analysis to Snowflake for claim 82c91797-c3fd-4904-a3c6-57ed7268553f

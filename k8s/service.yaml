@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: insurance-iq-service
+  labels:
+    app: insurance-iq
+spec:
+  type: LoadBalancer
+  selector:
+    app: insurance-iq
+  ports:
+  - name: http
+    port: 8000        # External port (what users access)
+    targetPort: 8000  # Internal port (container port)
+    protocol: TCP
+  sessionAffinity: ClientIP  # Sticky sessions (same client → same pod)

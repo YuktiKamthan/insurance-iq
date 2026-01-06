@@ -1,59 +1,38 @@
-# Use Python 3.12 slim image
+# Use Python 3.12 slim image as base
 FROM python:3.12-slim
 
-# Set working directory
+# Set working directory in container
 WORKDIR /app
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    build-essential \
+    gcc \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first (for better caching)
+# Copy requirements first (for Docker layer caching)
 COPY requirements.txt .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY src/ ./src/
-COPY data/ ./data/
+COPY . .
 
-# Create directories for logs and monitoring
-RUN mkdir -p logs monitoring
+# Create necessary directories
+RUN mkdir -p models monitoring mlruns
 
 # Expose port 8000
 EXPOSE 8000
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import requests; requests.get('http://localhost:8000/health')" || exit 1
 
 # Run the application
-CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-**Save the file:** Cmd+S or Ctrl+S
-
----
-
-## **STEP 13: Create requirements.txt**
-
-We need to list all the packages your app uses.
-
-**Create another file in the root folder:**
-
-1. Right-click on `insurance-iq` folder
-2. Select "New File"  
-3. Name it: `requirements.txt`
-
-**Paste this:**
-```
-fastapi==0.115.6
-uvicorn[standard]==0.34.0
-pandas==2.2.3
-numpy==2.1.3
-scikit-learn==1.6.1
-pydantic==2.10.5
-python-multipart==0.0.20
-joblib==1.4.2
+CMD ["python", "src/api/main.py"]

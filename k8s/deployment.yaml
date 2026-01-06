@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insurance-iq-deployment
+  labels:
+    app: insurance-iq
+spec:
+  replicas: 3  # Run 3 copies of your app
+  selector:
+    matchLabels:
+      app: insurance-iq
+  template:
+    metadata:
+      labels:
+        app: insurance-iq
+    spec:
+      containers:
+      - name: insurance-iq
+        image: insurance-iq:latest
+        imagePullPolicy: Never  # Use local image (not from Docker Hub)
+        ports:
+        - containerPort: 8000
+          name: http
+        
+        # Environment variables from Secret
+        env:
+        - name: SNOWFLAKE_ACCOUNT
+          valueFrom:
+            secretKeyRef:
+              name: insurance-iq-secrets
+              key: snowflake-account
+        - name: SNOWFLAKE_USER
+          valueFrom:
+            secretKeyRef:
+              name: insurance-iq-secrets
+              key: snowflake-user
+        - name: SNOWFLAKE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: insurance-iq-secrets
+              key: snowflake-password
+        - name: SNOWFLAKE_WAREHOUSE
+          valueFrom:
+            secretKeyRef:
+              name: insurance-iq-secrets
+              key: snowflake-warehouse
+        - name: SNOWFLAKE_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: insurance-iq-secrets
+              key: snowflake-database
+        - name: SNOWFLAKE_SCHEMA
+          valueFrom:
+            secretKeyRef:
+              name: insurance-iq-secrets
+              key: snowflake-schema
+        - name: SNOWFLAKE_ROLE
+          valueFrom:
+            secretKeyRef:
+              name: insurance-iq-secrets
+              key: snowflake-role
+        - name: MLFLOW_TRACKING_URI            
+          value: "http://mlflow:5000"            
+       
+        
+        # Health checks
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        
+        # Resource limits
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "500m"
+        
+        # Mount AWS credentials
+        volumeMounts:
+        - name: aws-credentials
+          mountPath: /root/.aws
+          readOnly: true
+      
+      # Define volumes
+      volumes:
+      - name: aws-credentials
+        secret:
+          secretName: aws-credentials

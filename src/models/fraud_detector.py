@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 from typing import Dict, Any
+import shap
 from .base_model import BaseModel
 
 
@@ -69,6 +70,93 @@ class FraudDetector(BaseModel):
             "recommended_action": action,
             "claim_data": claim_data
         }
+    
+    def explain_prediction(self, claim_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Get SHAP explanation for a fraud prediction.
+        
+        Args:
+            claim_data: Dictionary with claim features
+        
+        Returns:
+            Dictionary with prediction and explanation
+        """
+        # Get basic prediction first
+        result = self.predict_claim(claim_data)
+        
+        # Convert to DataFrame
+        df = pd.DataFrame([claim_data])
+        feature_cols = ['claim_amount', 'days_to_report', 'claimant_age', 'prior_claims']
+        X = df[feature_cols]
+        
+        try:
+            # Create SHAP explainer
+            explainer = shap.TreeExplainer(self.model)
+            shap_values = explainer.shap_values(X)
+            
+            # Get feature contributions for fraud class (class 1)
+            # Handle different SHAP output formats
+            if isinstance(shap_values, list) and len(shap_values) == 2:
+                # Binary classification with separate arrays for each class
+                contributions = shap_values[1][0]
+            elif isinstance(shap_values, np.ndarray):
+                # Single array output
+                if len(shap_values.shape) == 2:
+                    contributions = shap_values[0]
+                else:
+                    contributions = shap_values
+            else:
+                contributions = shap_values[0]
+            
+            # Create explanation
+            explanations = []
+            for i, feature in enumerate(feature_cols):
+                # Safely convert contribution to float
+                if isinstance(contributions[i], np.ndarray):
+                    contribution = float(contributions[i].item())
+                else:
+                    contribution = float(contributions[i])
+                    
+                value = float(X.iloc[0][feature])
+                
+                # Determine impact
+                if abs(contribution) > 0.1:
+                    impact = "high"
+                elif abs(contribution) > 0.05:
+                    impact = "medium"
+                else:
+                    impact = "low"
+                
+                # Determine direction
+                direction = "increases" if contribution > 0 else "decreases"
+                
+                explanations.append({
+                    "feature": feature,
+                    "value": value,
+                    "contribution": contribution,
+                    "impact": impact,
+                    "direction": direction
+                })
+            
+            # Sort by absolute contribution
+            explanations.sort(key=lambda x: abs(x['contribution']), reverse=True)
+            
+            # Add to result
+            result["explanation"] = {
+                "top_factors": explanations[:3],  # Top 3 contributors
+                "all_factors": explanations
+            }
+            
+        except Exception as e:
+            # If SHAP fails, still return the prediction without explanation
+            result["explanation"] = {
+                "error": f"SHAP explanation failed: {str(e)}",
+                "top_factors": [],
+                "all_factors": []
+            }
+        
+        return result
+
+ 
     
     def set_threshold(self, threshold: float) -> None:
         """Set custom fraud threshold.
