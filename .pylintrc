@@ -1,0 +1,8 @@
+[MASTER]
+ignore=CVS,.git,__pycache__,venv
+
+[FORMAT]
+max-line-length=127
+
+[MESSAGES CONTROL]
+disable=C0111,R0903,W0621
